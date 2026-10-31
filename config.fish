@@ -17,6 +17,8 @@ function y
     command rm -f -- "$tmp"
 end
 
+fzf --fish | source
+
 bind \cc 'echo; commandline ""; commandline -f repaint'
 
 alias codex "nix run github:numtide/llm-agents.nix#codex"
