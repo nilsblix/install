@@ -27,13 +27,8 @@ log "Installing packages..."
 sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" \
     --option warn-dirty false -- switch --flake "$dir#nilsblix"
 
-scripts=(
-    "macos"
-    "devenv"
-)
-
 log "Running scripts..."
 
-for s in "${scripts[@]}"; do
-    "$dir/$s"
+for f in scripts/*; do
+    "$f"
 done
