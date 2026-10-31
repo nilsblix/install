@@ -6,6 +6,7 @@ if test -d /run/current-system/sw/bin
     fish_add_path /run/current-system/sw/bin
 end
 
+direnv hook fish | source
 set -U fish_greeting
 
 function y

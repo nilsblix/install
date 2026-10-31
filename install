@@ -23,6 +23,9 @@ ln -sf "$dir/vimrc" ~/.vimrc
 mkdir -p ~/.config/fish
 ln -sf "$dir/config.fish" ~/.config/fish/config.fish
 
+mkdir -p ~/.config/direnv
+ln -sf "$dir/direnv.toml" ~/.config/direnv/direnv.toml
+
 log "Installing packages..."
 sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" \
     --option warn-dirty false -- switch --flake "$dir#nilsblix"
