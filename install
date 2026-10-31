@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+log() {
+    { set +x; } 2>/dev/null
+    printf "\x1b[32;1mINFO: $1\x1b[m\n"
+    set -x
+}
+
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+log "Symlinking configs..."
+
+mkdir -p ~/.config/karabiner
+ln -sf "$dir/karabiner.json" ~/.config/karabiner/karabiner.json
+
+mkdir -p ~/.config/ghostty
+ln -sf "$dir/ghostty.conf" ~/.config/ghostty/config
+
+ln -sf "$dir/vimrc" ~/.vimrc
+
+mkdir -p ~/.config/fish
+ln -sf "$dir/config.fish" ~/.config/fish/config.fish
+
+log "Installing packages..."
+sudo -H nix run nix-darwin --extra-experimental-features "nix-command flakes" \
+    --option warn-dirty false -- switch --flake "$dir#nilsblix"
+
+scripts=(
+    "macos"
+    "devenv"
+)
+
+log "Running scripts..."
+
+for s in "${scripts[@]}"; do
+    "$dir/$s"
+done

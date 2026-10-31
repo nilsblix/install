@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/Code/nilsblix
+mkdir -p ~/Code/thirdparty
+mkdir -p ~/Code/tmp
+mkdir -p ~/Code/kth

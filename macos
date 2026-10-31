@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# This script should be run as normal user, as these should not overwrite other
+# users settings.
+#
+# Remember to map caps-lock to escape in the normal macos settings...
+if [[ "$(id -u)" -eq 0 ]]; then
+    echo "Run `macos` as your normal user, not root." >&2
+    exit 1
+fi
+
+defaults write com.apple.dock orientation -string "bottom"
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
+
+defaults write com.apple.dock persistent-apps -array
+
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 18
+
+defaults write NSGlobalDomain NSWindowShouldDragOnGesture -bool true
+
+defaults write NSGlobalDomain AppleShowAllFiles -bool true
+
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+defaults write com.apple.finder AppleShowAllExtensions -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+killall Dock || true
+killall Finder || true
