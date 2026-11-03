@@ -1,7 +1,7 @@
 font-feature = -calt, -liga, -dlig
 font-size = 22
 
-background = #141112
+background = #121212
 cursor-color = #FFB96E
 split-divider-color = #1199da
 theme = Moonfly
@@ -10,7 +10,7 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 mouse-hide-while-typing = true
-macos-titlebar-style = native
+macos-titlebar-style = tabs
 window-theme = system
 
 keybind = cmd+k=goto_split:top

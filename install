@@ -16,7 +16,7 @@ mkdir -p ~/.config/karabiner
 ln -sf "$dir/karabiner.json" ~/.config/karabiner/karabiner.json
 
 mkdir -p ~/.config/ghostty
-ln -sf "$dir/ghostty.conf" ~/.config/ghostty/config
+ln -sf "$dir/config.ghostty" ~/.config/ghostty/config.ghostty
 
 ln -sf "$dir/vimrc" ~/.vimrc
 
