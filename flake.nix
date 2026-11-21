@@ -83,6 +83,7 @@
                     fonts.packages = with pkgs; [
                         nerd-fonts.jetbrains-mono
                         source-code-pro
+                        plemoljp-nf
                         inputs.sfmono.packages.${pkgs.stdenv.hostPlatform.system}.default
                     ];
                 })
